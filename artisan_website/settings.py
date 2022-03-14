@@ -80,6 +80,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'artisan-website',
         'HOST':'localhost',
+        # 'PORT': '3306',
         'USER':'postgres',
         'PASSWORD':'root'
     }
