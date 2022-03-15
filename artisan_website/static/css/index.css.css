@@ -1,0 +1,164 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#top-bar-1 {
+    color: #ffffff;
+    background-color: #000000;
+    position: relative;
+    border-bottom: 1px solid wheat;
+}
+
+#top-bar-2 {
+    padding: 7px;
+}
+
+#top-bar-inner {
+    position: relative;
+}
+
+#top-bar-content {
+    text-align: center;
+    float: none;
+}
+
+span.top-bar-content-1 {
+    font-size: 15px;
+    font-weight: 500;
+}
+
+span.top-bar-content-1 a {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+span.top-bar-content-1 a:hover{
+    color: darkkhaki;
+}
+
+input.form-control.ms {
+    margin-left: 320px;
+}
+
+ul.navbar-nav.justify-content-end.ms1 {
+    margin-right: 50px;
+    margin-left: auto;
+}
+
+li i.fa-cart-shopping {
+    font-size: 25px;
+    color: #000;
+    padding-top: 7px;
+}
+
+.ms1 li a {
+    color: #000000 !important;
+    font-weight: 500;
+    font-size: 16px;
+}
+
+.class-1 {
+    width: 350px;
+    height: 400px;
+}
+
+.class-3 {
+    width: 300px;
+    height: 400px;
+}
+
+#footer-1 {
+    background-color: #232F3E;
+    position: relative;
+    margin-top: 30px;
+    color: #ffffff;
+    padding-top: 20px;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+.footer-section {
+    border-bottom: 1px solid white;
+}
+
+.footer-content {
+    position: relative;
+    z-index: 2;
+}
+
+.footer-social-icon span {
+    color: #ffffff;
+    display: block;
+}
+
+.footer-social-icon h3 {
+    font-size: 25px;
+}
+
+.footer-social-icon a {
+    color: #ffffff;
+    font-size: 30px;
+    margin-right: 15px;
+}
+
+.footer-social-icon i {
+    height: 40px;
+    width: 40px;
+    text-align: center;
+    line-height: 35px;
+    border-radius: 50%;
+}
+
+.footer-heading h3 {
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.footer-heading h3::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -15px;
+    height: 4px;
+    width: 50px;
+    background-color: red;
+}
+
+.footer-column-1 ul a li {
+    width: 100%;
+    margin-bottom: 15px;
+    color: #ffffff;
+}
+
+.footer-column-1 ul a {
+    text-decoration: none;
+}
+
+.footer-column-1 ul a li:hover {
+    color: red;
+}
+
+a.icon-1:hover {
+    color: red;
+}
+
+.margin-1 {
+    margin-left: -20px;
+}
+
+.copyright-area {
+    margin-top: 5px;
+}
+
+.copyright-area .copyright-text p {
+    font-size: 15px;
+}
+
