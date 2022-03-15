@@ -1,9 +1,17 @@
+from django import views
 from django.contrib import admin
 from django.urls import path
 
-from . import views
+from .views import (
+    HomeView,
+    # ProductDetailView,
+    productDetail,
+    home,
+)
+app_name="artisan"
 
 urlpatterns=[
-    path('',views.home,name='home'),
+    path('',home,name='home'),
+    path('product/<int:id>',productDetail,name='product'),
     
 ]
