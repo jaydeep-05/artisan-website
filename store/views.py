@@ -1,14 +1,71 @@
-from django.shortcuts import render
-
-# Create your views here.
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from django.http import JsonResponse
 import json
 import datetime
 
+from django.contrib import messages
+from django.views import View
+from django.contrib.auth.models import User, auth
+from django.contrib import auth
+from .forms import SignInForm, SignUpForm
+from django.contrib.auth import authenticate, login, logout
 
 from .models import * 
 from .utils import cookieCart, cartData, guestOrder
+
+class SignUpForm(View):
+    form_class = SignUpForm
+    initial = {'key': 'value'}
+    template_name = 'store/auth-signup.html'
+
+    def get(self, request, *args, **kwargs):
+        form = self.form_class(initial=self.initial)
+        return render(request, self.template_name, {'form': form})
+
+    def post(self, request, *args, **kwargs):
+        form = self.form_class(request.POST)
+
+        if form.is_valid():
+            form.save()
+
+            username = form.cleaned_data.get('username')
+            messages.success(request, f'Account created for {username}')
+
+            return redirect(to='/signin/')
+
+        return render(request, self.template_name, {'form': form})
+
+
+def signinPage(request):
+    form = SignInForm(request.POST or None)
+
+    msg = None
+
+    if request.method == "POST":
+
+        if form.is_valid():
+            username = form.cleaned_data.get("username")
+            password = form.cleaned_data.get("password")
+            user = authenticate(username=username, password=password)
+            if user is not None:
+                login(request, user)
+                return redirect("store")
+            else:    
+                msg = 'Invalid credentials'    
+        else:
+            msg = 'Error validating the form'    
+
+    return render(request, "store/auth-signin.html", {"form": form, "msg" : msg})
+
+
+def logoutUser(request):
+    auth.logout(request)
+    return redirect('signin')
+
+def profile(request, username=None):
+    if User.objects.get(username=username):
+        user = User.objects.get(username=username)
+        return render(request,"store/main.html",{"user" : user})
 
 def product(request,pk):
     context=Product.objects.get(id=pk)
